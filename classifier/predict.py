@@ -10,7 +10,7 @@ from image_preprocess import process_image
 from model_build import model
 from model_load import model_loader
 
-def predict(input, names, model):
+def predict(input, model):
     ''' 
         Predict the class of an image using a trained deep learning model.
     '''
@@ -26,4 +26,4 @@ def predict(input, names, model):
         top_pr, top_class = prob.topk(k=1, dim=1)
         
         # Convert the indices of top_k to its real name
-        return top_pr, top_class
+        return top_pr.item(), top_class.item()
