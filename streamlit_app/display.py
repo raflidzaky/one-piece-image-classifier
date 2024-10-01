@@ -27,4 +27,4 @@ def button():
 
 def predict_button():
     st.write("Do you want to know who is he/she?")
-    st.button("Yes, I want!")
+    return st.button("Yes, I want!", key="predict_button")
