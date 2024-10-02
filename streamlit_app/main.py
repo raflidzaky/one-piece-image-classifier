@@ -2,9 +2,10 @@ import streamlit as st
 import display
 import display_image
 import time
-from model_load import model_loader
-from model_build import model
-from predict import predict
+from classifier.model_load import model_loader
+from classifier.model_build import model
+from classifier.predict import predict
+from character_script import character_script
 
 def main():
     # Display the initial landing page
@@ -36,7 +37,7 @@ def main():
 
             # Load the model
             model_used = model()
-            model_fin = model_loader(model_path='C:/Users/Rafli/one-piece-image-classifier/streamlit_app/model_v14.pth', model=model_used)
+            model_fin = model_loader(model_path='C:/Users/Rafli/one_piece_image_classifier/classifier/model_v14.pth', model=model_used)
             progress_bar.progress(50)  # Update progress
 
             if model_fin is not None:
@@ -46,12 +47,12 @@ def main():
                 # Run prediction
                 top_pr, top_class = predict(input=image_displayed, model=model_fin)
                 progress_bar.progress(100)  # Complete progress
-                st.write(f"Is he/she/it {top_class}? If yes, great!!!")
+
+                st.session_state.display_results = True
+                character_script(top_class, top_pr)
             else:
                 status_text.text("Model loading failed.")
-        else:
-            st.write("Click the button, plzz :)")
-
+        
 if __name__ == "__main__":
     main()
     
