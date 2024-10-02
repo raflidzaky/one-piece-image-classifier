@@ -1,1 +1,3 @@
 .venv/*
+streamlit_app/__pycache__/*
+classifier/__pycache__/*
