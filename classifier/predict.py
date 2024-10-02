@@ -3,6 +3,7 @@ from image_preprocess import image_transform, image_processing
 
 # Categories to map
 # Since the class is simple, I think we no need to store it as a .txt yet
+# As parsing it may take a longer time
 # I store as a dict to access it with class index in prediction
 categories = [
     "Ace",
