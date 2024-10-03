@@ -40,18 +40,17 @@ def main():
             model_fin = model_loader(model_path='C:/Users/Rafli/one_piece_image_classifier/classifier/model_v14.pth', model=model_used)
             progress_bar.progress(50)  # Update progress
 
-            if model_fin is not None:
-                status_text.text("Model loaded successfully.")
-                progress_bar.progress(75)  # Update progress
+            time.sleep(1.5)
+            status_text.text("Model loaded successfully.")
+            progress_bar.progress(75)  # Update progress
 
                 # Run prediction
-                top_pr, top_class = predict(input=image_displayed, model=model_fin)
-                progress_bar.progress(100)  # Complete progress
+            top_pr, top_class = predict(input=image_displayed, model=model_fin)
+            progress_bar.progress(100)  # Complete progress
 
-                st.session_state.display_results = True
-                character_script(top_class, top_pr)
-            else:
-                status_text.text("Model loading failed.")
+            st.session_state.display_results = True
+            character_script(top_class, top_pr)
+
         
 if __name__ == "__main__":
     main()
