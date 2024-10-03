@@ -1,5 +1,10 @@
 import torch
+
 def model():
+    '''
+        This function will return basic architecture that are being used.
+        Soon, this architecture will be loaded with weights by classifier.model_load module.
+    '''
     return torch.nn.Sequential(
                                 # Feature extraction layers
                               torch.nn.Conv2d(in_channels=3, out_channels=8,
