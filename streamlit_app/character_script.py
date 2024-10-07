@@ -9,7 +9,7 @@ def json_parser():
         Output: The value of json (characters' dictionary) that stored in "description
     '''
     # JSON's parser must met utf-8 encoding
-    with open('one_piece_image_classifier/character_info.json', 'r', encoding='utf-8') as f:
+    with open('character_info.json', 'r', encoding='utf-8') as f:
         description = json.load(f)
         return description 
     
