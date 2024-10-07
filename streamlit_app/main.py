@@ -2,6 +2,12 @@ import streamlit as st
 import display
 import display_image
 import time
+import sys
+import os
+
+# Add the parent directory to the system path
+# This will make sure Python could refer classifier as a sibling directory.
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from classifier.model_load import model_loader
 from classifier.model_build import model
 from classifier.predict import predict
