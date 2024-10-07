@@ -43,7 +43,7 @@ def main():
 
             # Load the model
             model_used = model()
-            model_fin = model_loader(model_path='one-piece-image-classifier/classifier/model_v14.pth', model=model_used)
+            model_fin = model_loader(model_path='classifier/model_v14.pth', model=model_used)
             progress_bar.progress(50)  # Update progress
 
             time.sleep(1.5)
